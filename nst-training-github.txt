@@ -1,2 +1,3 @@
 pembelajaran cara penggunaan github
 membuat branch baru
+mempelajari framework CI
