@@ -1,3 +1,4 @@
 pembelajaran cara penggunaan github
 membuat branch baru
+mempelajari php dasar
 mempelajari framework CI
