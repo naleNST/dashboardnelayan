@@ -10,9 +10,10 @@ define('DB_HOST', 'sql12.freesqldatabase.com'); // Ganti dengan host database An
 define('DB_USER', 'sql12658879'); // Ganti dengan username database Anda
 define('DB_PASS', 'cQmEsVp2rJ'); // Ganti dengan kata sandi database Anda
 define('DB_NAME', 'sql12658879'); // Ganti dengan nama database Anda
+define('DB_PORT', '3306');
 
 // Koneksi ke Database
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 
 // Periksa koneksi database
 if ($conn->connect_error) {
