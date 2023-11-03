@@ -6,10 +6,11 @@ session_start();
 // error_reporting(E_ALL);
 
 // Sambungkan ke database
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$database = "login";
+$servername = "sql12.freesqldatabase.com";
+$username = "sql12658879";
+$password = "cQmEsVp2rJ";
+$database = "sql12658879";
+$port = "3306";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
