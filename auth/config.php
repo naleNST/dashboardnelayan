@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Validasi pengguna dengan SQL
-    $sql = "SELECT * FROM user_eksternal WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
     // var_dump($result->num_rows);
