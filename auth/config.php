@@ -6,12 +6,12 @@ session_start();
 // error_reporting(E_ALL);
 
 // Sambungkan ke database
-$servername = "sql12.freesqldatabase.com";
-$username = "sql12658879";
-$password = "cQmEsVp2rJ";
-$database = "sql12658879";
+define('DB_HOST', 'sql12.freesqldatabase.com'); // Ganti dengan host database Anda
+define('DB_USER', 'sql12658879'); // Ganti dengan username database Anda
+define('DB_PASS', 'cQmEsVp2rJ'); // Ganti dengan kata sandi database Anda
+define('DB_NAME', 'sql12658879'); // Ganti dengan nama database Anda
 
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if ($conn->connect_error) {
     die("Koneksi database gagal: " . $conn->connect_error);
