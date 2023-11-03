@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
@@ -25,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
-    var_dump($result->num_rows);
-    die();
+    // var_dump($result->num_rows);
+    // die();
     if ($result->num_rows > 0) {
         // Jika login berhasil, Anda bisa mengarahkan pengguna ke halaman lain
         header("Location: ../dashboard.php");
