@@ -6,10 +6,10 @@ session_start();
 // error_reporting(E_ALL);
 
 // Sambungkan ke database
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$database = "login";
+$servername = "sql12.freesqldatabase.com";
+$username = "sql12658879";
+$password = "cQmEsVp2rJ";
+$database = "sql12658879";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Validasi pengguna dengan SQL
-    $sql = "SELECT * FROM user_eksternal WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
     // var_dump($result->num_rows);
