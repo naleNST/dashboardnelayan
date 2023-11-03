@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          echo "<script>window.location = '../index.html';</script>"; 
     }
 }
-$conn->close();
+$conn->set_charset("utf8");
 ?>
 
 
