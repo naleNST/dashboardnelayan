@@ -11,19 +11,28 @@ define('DB_USER', 'sql12658879'); // Ganti dengan username database Anda
 define('DB_PASS', 'cQmEsVp2rJ'); // Ganti dengan kata sandi database Anda
 define('DB_NAME', 'sql12658879'); // Ganti dengan nama database Anda
 
+// Koneksi ke Database
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+// Periksa koneksi database
 if ($conn->connect_error) {
     die("Koneksi database gagal: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    DB_USER = $_POST["username"];
-    DB_PASS = $_POST["password"];
+// Set karakter encoding
+$conn->set_charset("utf8");
 
-    // Validasi pengguna dengan SQL
-    $sql = "SELECT * FROM login WHERE username = 'DB_USER' AND password = 'DB_PASS'";
-    $result = $conn->query($sql);
+// Fungsi untuk verifikasi login
+function verifikasiLogin($username, $password) {
+    global $conn;
+
+    // Hindari SQL Injection dengan menghindari penggunaan parameter langsung dalam kueri
+    $username = $conn->real_escape_string($username);
+
+    // Kueri untuk memeriksa apakah kredensial pengguna cocok
+    $query = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
+
+    $result = $conn->query($query);
 
     // var_dump($result->num_rows);
     // die();
