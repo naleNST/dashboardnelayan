@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // die();
     if ($result->num_rows > 0) {
         // Jika login berhasil, Anda bisa mengarahkan pengguna ke halaman lain
-        header("Location: ./dashboard.php");
+        header("Location: dashboard.php");
         exit();
     } else {
          echo "<script>alert('Username / Password salah. Coba lagi.');</script>";
-         echo "<script>window.location = './index.html';</script>"; 
+         echo "<script>window.location = 'index.html';</script>"; 
     }
 }
 $conn->close();
