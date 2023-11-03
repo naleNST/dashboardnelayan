@@ -18,11 +18,11 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    DB_USER = $_POST["username"];
+    DB_PASS = $_POST["password"];
 
     // Validasi pengguna dengan SQL
-    $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM login WHERE username = 'DB_USER' AND password = 'DB_PASS'";
     $result = $conn->query($sql);
 
     // var_dump($result->num_rows);
