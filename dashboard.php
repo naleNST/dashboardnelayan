@@ -24,8 +24,6 @@
 </head>
 <body>
 
-
-
 <form class="logout-form" method="post" action="logout.php">
     <input calss="text-alignment:" type="submit" value="Sign Out" class="logout-button">
 </form>
