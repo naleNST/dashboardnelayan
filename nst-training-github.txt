@@ -1,4 +1,0 @@
-pembelajaran cara penggunaan github
-mempelajari php dasar
-mempelajari framework CI
-mempelajari html
