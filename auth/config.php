@@ -6,34 +6,24 @@ session_start();
 // error_reporting(E_ALL);
 
 // Sambungkan ke database
-define('DB_HOST', 'sql12.freesqldatabase.com'); // Ganti dengan host database Anda
-define('DB_USER', 'sql12658879'); // Ganti dengan username database Anda
-define('DB_PASS', 'cQmEsVp2rJ'); // Ganti dengan kata sandi database Anda
-define('DB_NAME', 'sql12658879'); // Ganti dengan nama database Anda
-define('DB_PORT', '3306');
+$servername = "sql12.freesqldatabase.com";
+$username = "sql12658879";
+$password = "cQmEsVp2rJ";
+$database = "sql12658879";
 
-// Koneksi ke Database
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+$conn = new mysqli($servername, $username, $password, $database);
 
-// Periksa koneksi database
 if ($conn->connect_error) {
     die("Koneksi database gagal: " . $conn->connect_error);
 }
 
-// Set karakter encoding
-$conn->set_charset("utf8");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-// Fungsi untuk verifikasi login
-function verifikasiLogin($username, $password) {
-    global $conn;
-
-    // Hindari SQL Injection dengan menghindari penggunaan parameter langsung dalam kueri
-    $username = $conn->real_escape_string($username);
-
-    // Kueri untuk memeriksa apakah kredensial pengguna cocok
-    $query = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
-
-    $result = $conn->query($query);
+    // Validasi pengguna dengan SQL
+    $sql = "SELECT * FROM login WHERE username = '$username' AND password = '$password'";
+    $result = $conn->query($sql);
 
     // var_dump($result->num_rows);
     // die();
@@ -46,8 +36,14 @@ function verifikasiLogin($username, $password) {
          echo "<script>window.location = '../index.html';</script>"; 
     }
 }
-$conn->set_charset("utf8");
+$conn->close();
 ?>
+
+
+
+
+
+
 
 
 
